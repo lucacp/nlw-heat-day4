@@ -1,7 +1,8 @@
 defmodule HeatTagsWeb.MessagesController do
   use HeatTagsWeb, :controller
 
-  alias HeatTags.{Message.Create, Message}
+  alias HeatTags.Message
+  alias HeatTags.Message.Create 
   
   def create(conn, params) do 
     params
@@ -9,7 +10,7 @@ defmodule HeatTagsWeb.MessagesController do
     |>handle_create(conn)
   end
   
-  defp handle_create({:ok, %Message{} = message} , conn ) do
+  defp handle_create({:ok, %Message{} = message}, conn) do
     conn
     |>put_status(:created)
     |>render("create.json", message: message)
