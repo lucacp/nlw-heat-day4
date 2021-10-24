@@ -9,7 +9,7 @@ defmodule HeatTagsWeb.MessagesController do
     |>handle_create(conn)
   end
   
-  defp handle_create({:ok, %Message = message} , conn ) do
+  defp handle_create({:ok, %Message{} = message} , conn ) do
     conn
     |>put_status(:created)
     |>render("create.json", message: message)

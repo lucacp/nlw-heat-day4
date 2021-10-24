@@ -4,9 +4,9 @@ defmodule HeatTags.Messages.Create do
     params
     |> Message.changeset()
     |> Repo.insert()
-    |> handle insert()
+    |> handle_insert()
   end
 
-  defp handle_insert ({:ok, %Message{}} = result), do: result do
+  defp handle_insert ({:ok, %Message{}} = result), do: result
   defp handle_insert ({:error, result}), do: %{:error, %{result: result, status: :bad_request}}
 end  

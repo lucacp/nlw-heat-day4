@@ -15,7 +15,7 @@ defmodule HeatTagsWeb.ErrorView do
   end
 
   def render("error.json", %{result: %Changeset{} = changeset}) do
-    %{result: changeset}
+    %{result: translate_errors(changeset)}
   end
 
   defp translate_errors(changeset) do 
